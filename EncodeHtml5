@@ -1,0 +1,8 @@
+#!/bin/bash
+
+inputfile=$1
+
+#!/bin/bash
+
+ffmpeg -i "$inputfile" -s 470x400 -r 30000/1001 -b 200k -bt 240k -vcodec libx264 -vpre ipod320 -acodec libfaac -ac 2 -ar 48000 -ab 192k "$inputfile".mp4
+ffmpeg2theora "$inputfile".mp4 -v 9 -a 5 "$inputfile".mp4.ogv

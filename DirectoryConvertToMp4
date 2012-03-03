@@ -1,0 +1,10 @@
+#!/bin/bash
+
+directory=$1
+
+#!/bin/bash
+
+for f in "$directory"/*.mkv "$directory"/*.mp4 "$directory"/*.avi
+      do 
+      ffmpeg -i "$f" -mbd rd -flags +mv4+aic -trellis 2 -cmp 2 -subcmp 2 -g 300 -pass 1 "${f%.a}.mp4"
+done

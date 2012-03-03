@@ -1,0 +1,7 @@
+#!/bin/bash
+
+inputfile=$1
+
+#!/bin/bash
+
+ffmpeg -i "$inputfile" -mbd rd -flags +mv4+aic -trellis 2 -cmp 2 -subcmp 2 -g 300 -pass 1 "$inputfile".mp4
