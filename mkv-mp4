@@ -1,0 +1,7 @@
+#!/bin/bash
+
+inputfile=$1
+
+#!/bin/bash
+
+ffmpeg -i "$inputfile" -r 30000/1001 -b 200k -bt 240k -vcodec libx264 -acodec libfaac -ac 2 -ar 48000 -ab 192k "$inputfile".mp4

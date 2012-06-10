@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# assuming you have a directory of PNGs, rename them all sequentially then turn them into a 10fps video
+
+a=1
+for i in *.png; do
+  new=$(printf "%04d.png" ${a}) #04 pad to length of 4
+  mv ${i} ${new}
+  let a=a+1
+done
+
+ffmpeg -r 10 -i %04d.png -qscale 3 output.mp4
