@@ -1,7 +1,8 @@
 #!/bin/bash
 
 inputfile=$1
+quality=${2:-foo}
 
 #!/bin/bash
 
-ffmpeg -i "$inputfile" -mbd rd -flags +mv4+aic -trellis 2 -cmp 2 -subcmp 2 -g 300 -pass 1 "$inputfile".mp4
+ffmpeg -i "$inputfile" -mbd rd -flags +mv4+aic -trellis 2 -cmp 2 -subcmp 2 -g "$quality" -pass 1 "$inputfile".mp4
