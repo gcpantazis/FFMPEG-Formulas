@@ -4,7 +4,7 @@ inputfile=$1
 
 #!/bin/bash
 
-ffmpeg -y -i "$inputfile" -pass 1 -s 236x200 -r 30000/1001 -b 70k -bt 70k -vcodec libx264 -vpre ipod320 -acodec libfaac -ac 2 -ar 48000 -ab 50k "$inputfile".mp4
-ffmpeg -y -i "$inputfile" -pass 2 -s 236x200 -r 30000/1001 -b 70k -bt 70k -vcodec libx264 -vpre ipod320 -acodec libfaac -ac 2 -ar 48000 -ab 50k "$inputfile".mp4
-ffmpeg -y -i "$inputfile" -pass 3 -s 236x200 -r 30000/1001 -b 70k -bt 70k -vcodec libx264 -vpre ipod320 -acodec libfaac -ac 2 -ar 48000 -ab 50k "$inputfile".mp4
-ffmpeg2theora "$inputfile".mp4 -v 9 -a 5 "$inputfile".mp4.ogv
+ffmpeg -y -i "$inputfile" -pass 1 -b:v 0.7M "$inputfile".mp4
+ffmpeg -y -i "$inputfile" -pass 2 -b:v 0.7M "$inputfile".mp4
+ffmpeg -y -i "$inputfile" -pass 3 -b:v 0.7M "$inputfile".mp4
+ffmpeg -i "$inputfile".mp4 -c:v libvpx -b:v 0.7M -strict -2 "$inputfile".webm
